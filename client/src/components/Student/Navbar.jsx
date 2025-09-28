@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from './../../assets/assets';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react';
+import { AppContext } from '../../context/AppContext';
 
 const Navbar = () => {
+
+    const {navigate} = useContext(AppContext);
 
     const isCourseListPage = location.pathname === '/course-list';
 
@@ -15,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div className={`navbar-container ${isCourseListPage ? "white-bg" : "cyan-bg"}`}>
-            <img src={assets.logo} alt="Logo" className="navbar-logo" />
+            <img onClick={()=> navigate('/')} src={assets.logo} alt="Logo" className="navbar-logo" />
 
         <div className="navbar-links">
             <div className="navbar-links-group">

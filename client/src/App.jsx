@@ -20,7 +20,7 @@ function App() {
 
 
   return (
-    <div className="text-default min-h-screen bg-white">
+    <div className="app">
       {!isEducatorRoute && <Navbar />}
       <Routes>
         <Route path='/' element={<Home />} />
